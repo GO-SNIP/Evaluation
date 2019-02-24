@@ -17,11 +17,11 @@ import argparse
 import evaluation # current code
 import csv
 import os
-    
+
 def run():
 
     parser = argparse.ArgumentParser(description='Evaluate a solution to a problem instance')
-    
+
     parser.add_argument('raw', help='raw')
     parser.add_argument('rop', help='rop')
     parser.add_argument('con', help='con')
@@ -30,7 +30,7 @@ def run():
     parser.add_argument('sol2', help='sol2')
     parser.add_argument('summary', help='summary')
     parser.add_argument('detail', help='detail')
-    
+
     args = parser.parse_args()
 
     # Check files exist
@@ -38,7 +38,7 @@ def run():
         if not os.path.isfile(f):
             raise Exception("Can't find {}".format(f))
             #raise FileNotFoundError("Can't find {}".format(f)) # not in Python 2
-    
+
     try:
         (obj, cost, penalty, max_obj_viol, max_nonobj_viol, infeas) = evaluation.run(
             args.raw,

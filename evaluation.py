@@ -627,8 +627,6 @@ class Evaluation:
 
         start_time = time.time()
         gens = list(data.raw.generators.values())
-        gens = [ r for r in gens if r.stat != 0]
-
         self.gen_key = [(r.i, r.id) for r in gens]
         self.num_gen = len(gens)
         self.gen_i = [r.i for r in gens]
